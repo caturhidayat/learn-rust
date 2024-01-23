@@ -1,3 +1,5 @@
+mod cake;
+// use cake::cake::is_favorite;
 fn main() {
     println!("Hello, world!");
 
@@ -31,7 +33,7 @@ fn main() {
 
     let mut sentences = String::from("Rina Pratiwi.");
     let immutable_sentence = &mut sentences;
-    
+
     println!("{}", immutable_sentence);
     println!("{}", sentences);
 
@@ -61,12 +63,29 @@ fn main() {
 
     // Constant Associate
     trait Animal {
-        const BIRDIE: i32 = -1;
+        const BIRDIE: &'static str = "Bird 🐤";
     }
 
     struct Caddy;
 
-    impl Animal for Caddy {} 
+    impl Animal for Caddy {}
 
     println!("{}", Caddy::BIRDIE);
+
+    // Export
+    pub(crate) fn print_lemon() {
+        println!("lemon 🍋");
+    }
+
+    print_lemon();
+
+    let guess = "Coconut";
+
+    println!("{}", cake::cake::flavor::COCONUT);
+    println!("{}", cake::cake::flavor::topping::SPRINKLE);
+    if cake::cake::is_favorite(guess) {
+        println!("That's my favorite cake!");
+    } else {
+        println!("Not my favorite...");
+    }
 }
