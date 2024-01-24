@@ -1,8 +1,11 @@
+#![allow(warnings)]
+
+use std::io::Chain;
 mod cake;
 // use cake::cake::is_favorite;
 
-
 pub const FLOUNDER: &'static str = "flounder";
+
 
 fn main() {
     println!("Hello, world!");
@@ -93,18 +96,18 @@ fn main() {
         println!("Not my favorite...");
     }
 
-    // mod ocean {
-    //     pub const ATLANTIC: &'static str = "atlantic";
+    mod ocean {
+        pub const ATLANTIC: &'static str = "atlantic";
 
-    //     mod fish {
-    //         fn print_flounder() {
-    //             use crate::FLOUNDER;
-    //             use super::ATLANTIC;
+        mod fish {
+            fn print_flounder() {
+                use crate::FLOUNDER;
+                use super::ATLANTIC;
 
-    //             println!("A {FLOUNDER} in the {ATLANTIC}")
-    //         }
-    //     }
-    // }
+                println!("A {FLOUNDER} in the {ATLANTIC}")
+            }
+        }
+    }
 
     // Macros
     let nomor = 8;
@@ -140,6 +143,38 @@ fn main() {
     // }
 
     // panic!("We should use panic sparingly.")
+
+    let unuse_variable = "No Warning here! 🔥";
+
+    #[test]
+    pub fn is_true() {
+        assert!(true, "successfully")
+    }
+
+    #[deprecated(since = "0.2.0", note = "replaced by `is true`")]
+    pub fn is_not_true() {
+        println!("The compiler will warn when using this function")
+    }
+
+    #[cfg(target_os = "linux")]
+    pub fn distro_name(name: &str) {
+        println!("your linux distribution is : {name}")
+    } 
+
+    #[derive(Debug, Clone)]
+
+    struct Chair {
+        leg: u32,
+        wood: bool,
+    }
+
+    let chair = Chair {
+        leg: 3,
+        wood: true,
+    };
+
+    println!("{chair:#?}");
+    
 
 
 }
