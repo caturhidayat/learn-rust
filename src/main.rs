@@ -114,5 +114,32 @@ fn main() {
 
     println!("{}", dest);
 
+    let jungle_bird = "Macaw";
+    let sound = "caws";
+
+    print!("The {jungle_bird}");
+    println!(". {sound}");
+
+    // Macros Assert
+    let num = 81;
+    let you = "us";
+    let i = "us";
+
+    assert!(you == i);
+    assert_eq!(you, i);
+    assert_ne!(i.len(), num);
+
+    // let batas = 1;
+
+    // if batas < 5 {
+    //     todo!("We will handle this outcome soon.")
+    // } else if batas > 5 {
+    //     unimplemented!("We might do something here eventually")
+    // } else {
+    //     unreachable!()
+    // }
+
+    // panic!("We should use panic sparingly.")
+
 
 }
