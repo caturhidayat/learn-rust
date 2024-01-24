@@ -1,5 +1,9 @@
 mod cake;
 // use cake::cake::is_favorite;
+
+
+pub const FLOUNDER: &'static str = "flounder";
+
 fn main() {
     println!("Hello, world!");
 
@@ -79,7 +83,7 @@ fn main() {
 
     print_lemon();
 
-    let guess = "Coconut";
+    let guess = "Coconut 🥥";
 
     println!("{}", cake::cake::flavor::COCONUT);
     println!("{}", cake::cake::flavor::topping::SPRINKLE);
@@ -88,4 +92,19 @@ fn main() {
     } else {
         println!("Not my favorite...");
     }
+
+    mod ocean {
+        pub const ATLANTIC: &'static str = "atlantic";
+
+        mod fish {
+            fn print_flounder() {
+                use crate::FLOUNDER;
+                use super::ATLANTIC;
+
+                println!("A {FLOUNDER} in the {ATLANTIC}")
+            }
+        }
+    }
+
+
 }
