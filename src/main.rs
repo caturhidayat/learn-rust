@@ -93,18 +93,26 @@ fn main() {
         println!("Not my favorite...");
     }
 
-    mod ocean {
-        pub const ATLANTIC: &'static str = "atlantic";
+    // mod ocean {
+    //     pub const ATLANTIC: &'static str = "atlantic";
 
-        mod fish {
-            fn print_flounder() {
-                use crate::FLOUNDER;
-                use super::ATLANTIC;
+    //     mod fish {
+    //         fn print_flounder() {
+    //             use crate::FLOUNDER;
+    //             use super::ATLANTIC;
 
-                println!("A {FLOUNDER} in the {ATLANTIC}")
-            }
-        }
-    }
+    //             println!("A {FLOUNDER} in the {ATLANTIC}")
+    //         }
+    //     }
+    // }
+
+    // Macros
+    let nomor = 8;
+    let alamat = "Bekasi";
+
+    let dest = format!("Kereta akan sampai di {alamat}, dan berhenti di peron : {nomor}");
+
+    println!("{}", dest);
 
 
 }
